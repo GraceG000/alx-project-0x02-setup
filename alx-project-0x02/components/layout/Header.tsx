@@ -3,7 +3,7 @@ import Link from "next/link";
 const Header: React.FC = () => {
   return (
     <>
-      <div className="grid px-4 py-2 h-[10rem] bg-blue-500">
+      <div className="grid px-4 py-2 h-[10rem] bg-pink-500 mb-8">
         <div className="flex  justify-end items-center">
           <nav>
             <ul className="flex">
