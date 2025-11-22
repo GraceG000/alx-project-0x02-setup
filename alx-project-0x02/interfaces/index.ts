@@ -9,3 +9,9 @@ export interface ButtonProps{
     children: React.ReactNode;//for accepting different names...
     className?: string;
 }
+
+export interface PostProps{
+    title: string;
+    content: string;
+    userId: string;
+}
