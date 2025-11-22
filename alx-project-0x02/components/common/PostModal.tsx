@@ -18,7 +18,7 @@ const PostModal: React.FC<userInput> = ({ title, content }) => {
 
   return (
     <>
-      <div className="fixed inset-0 bg-black/60 bg-opacity-90 z-10"></div>
+      <div className="fixed inset-0 bg-black/30 bg-opacity-90 z-10"></div>
               <div className="fixed inset-0 z-20 flex items-center justify-center">
         <div className="bg-amber-50 text-black fixed z-10 top-[25%] left-[25%] right-[25%] bottom-[25%] rounded-2xl p-5">
           <div className="flex flex-1 justify-between">
