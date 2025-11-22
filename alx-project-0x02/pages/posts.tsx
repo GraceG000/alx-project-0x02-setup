@@ -1,28 +1,12 @@
 import PostCard from "@/components/common/PostCard";
 import Header from "@/components/layout/Header";
 import { PostProps } from "@/interfaces";
-import { useEffect, useState } from "react";
 
-const Posts: React.FC = () =>{
+interface PostsPageProps {
+  posts: PostProps[];
+}
 
-    const [posts, setPosts] = useState<PostProps[]>([]);
-
-     useEffect(() => {
-    const fetchPosts = async () => {
-      const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-      const data = await res.json();
-
-      const formatted = data.map((item: any) => ({
-        title: item.title,
-        content: item.body,
-        userId: item.userId,
-      }));
-
-       setPosts(formatted);
-    };
-
-    fetchPosts();
-  }, []);
+const Posts: React.FC<PostsPageProps> = ({posts}) =>{
 
   return(
     <>
@@ -52,4 +36,31 @@ const Posts: React.FC = () =>{
     </>
   )
 }
+
+export const getStaticProps = async () => {
+  try {
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+    const data = await res.json();
+
+    const formatted: PostProps[] = data.map((item: any) => ({
+      title: item.title,
+      content: item.body,
+      userId: item.userId,
+    }));
+
+    return {
+      props: {
+        posts: formatted,
+      },
+    };
+  } catch (error) {
+    console.error("Error fetching posts:", error);
+    return {
+      props: {
+        posts: [],
+      },
+    };
+  }
+};
+
 export default Posts;
