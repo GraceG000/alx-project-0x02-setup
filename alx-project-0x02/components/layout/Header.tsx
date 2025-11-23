@@ -19,6 +19,9 @@ const Header: React.FC = () => {
                <li className="mx-2">
                 <Link href="/posts">Posts</Link>
               </li>
+              <li className="mx-2">
+                <Link href="/users">Users</Link>
+              </li>
             </ul>
           </nav>
         </div>
