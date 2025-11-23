@@ -25,7 +25,7 @@ export const getStaticProps = async () => {
             }
         }
     }
-}
+};
 
 const Users: React.FC<UsersPageProps> = ({users}) =>{
   return(
