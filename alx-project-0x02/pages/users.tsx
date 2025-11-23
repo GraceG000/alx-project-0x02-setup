@@ -6,7 +6,7 @@ interface UsersPageProps{
     users: UserProps[];
 }
 
-export const getStaticProps = async () => {
+export const getStaticProps = async() => {
     try{
         const res = await fetch("https://jsonplaceholder.typicode.com/users");
         const data: UserProps[] = await res.json();
