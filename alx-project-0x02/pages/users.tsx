@@ -6,25 +6,6 @@ interface UsersPageProps{
     users: UserProps[];
 }
 
-const Users: React.FC<UsersPageProps> = ({users}) =>{
-  return(
-    <>
-        <header>
-            <Header />
-        </header>
-        <main>
-           <div className="grid grid-cols-4 gap-2">
-        {users.map((user) => (
-          <UserCard key={user.id} user={user} />
-        ))}
-            </div> 
-         
-        </main>
-        <footer></footer>
-    </>
-  )
-}
-
 export const getStaticProps = async () => {
     try{
         const res = await fetch("https://jsonplaceholder.typicode.com/users");
@@ -46,4 +27,22 @@ export const getStaticProps = async () => {
     }
 }
 
+const Users: React.FC<UsersPageProps> = ({users}) =>{
+  return(
+    <>
+        <header>
+            <Header />
+        </header>
+        <main>
+           <div className="grid grid-cols-4 gap-2">
+        {users.map((user) => (
+          <UserCard key={user.id} user={user} />
+        ))}
+            </div> 
+         
+        </main>
+        <footer></footer>
+    </>
+  )
+}
 export default Users;
